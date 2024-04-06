@@ -1,0 +1,16 @@
+name: Run test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  get_tests:
+    name: "Load Tests"
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    - name: Setup kurtosis testnet and run assertoor tests
+      uses: ethpandaops/kurtosis-assertoor-github-action
+      with:
+        ethereum_package_args: './kurtosis-args.yaml'
