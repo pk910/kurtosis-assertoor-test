@@ -11,6 +11,6 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
     - name: Setup kurtosis testnet and run assertoor tests
-      uses: ethpandaops/kurtosis-assertoor-github-action
+      uses: ethpandaops/kurtosis-assertoor-github-action@v1
       with:
         ethereum_package_args: './kurtosis-args.yaml'
