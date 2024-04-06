@@ -25,4 +25,4 @@ jobs:
         EOF
         )
         
-        echo "$serviced_json" | yq -P
+        echo "$services_json" | yq -P
