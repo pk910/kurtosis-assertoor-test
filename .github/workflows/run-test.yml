@@ -11,6 +11,18 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
     - name: Setup kurtosis testnet and run assertoor tests
+      id: kurtosis_testnet
       uses: ethpandaops/kurtosis-assertoor-github-action@v1
       with:
         ethereum_package_args: './kurtosis-args.yaml'
+    
+    - name: Print service URLs
+      shell: bash
+      run: |
+        services_json=$(
+        cat <<"EOF"
+        ${{ steps.kurtosis_testnet.outputs.services }}
+        EOF
+        )
+        
+        echo "$serviced_json" | yq -P
